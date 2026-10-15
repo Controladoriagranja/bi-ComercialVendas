@@ -1,0 +1,627 @@
+[
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento",
+    "estado": "disponivel_api"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Preço Médio",
+    "estado": "disponivel_api"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Peso Faturado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Indicador Selecionado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Indicador Selecionado Formatado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Mostrar Mes Com Dados",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Últimos 12 Meses",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Previsão Sazonal",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Mostrar 12 Meses + Previsão",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Última Data Base",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento Mês Atual",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento Mês Anterior",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Insight Faturamento",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Insight Cliente Líder",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Insight Produto Líder",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Preço Médio Mês Atual",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Preço Médio Mês Anterior",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Insight Preço Médio",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Insights do Período",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Última Data Mês Fechado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Mostrar Período Página",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Peso",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Realizado",
+    "estado": "disponivel_api"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Meta Peso %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Diferença Peso",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Receita %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Receita",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Preço Médio Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Preço Médio %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Positivação Realizado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Positivação",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Positivação %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Status Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Rank Vendedor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Tem Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Realizado Auto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Peso Auto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Auto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Receita Auto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Qtd Clientes Atendidos",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Somente Vendedores com Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Produto Card 3",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Clientes Atendidos Somente Vendedores com Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Clientes Atendidos Texto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Vendedores no Filtro com Meta",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Vendedores no Filtro card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Supervisor Destaque Nome",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Supervisor Destaque Atingimento",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Auto Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Auto Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Preço Médio Auto Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Cliente Destaque Nome",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Cliente Selecionado Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento Cliente Período",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento Cliente Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Pedidos Cliente Período",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Última Compra Cliente",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Última Compra Cliente Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Produto Selecionado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Faturamento Produto Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Medida_DetalhamentoVendedor",
+    "nome": "Vendedor Selecionado Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Medida_DetalhamentoVendedor",
+    "nome": "Faturamento no Período Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Medida_DetalhamentoVendedor",
+    "nome": "Clientes Atendidos no Período",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Medida_DetalhamentoVendedor",
+    "nome": "Pedidos no Período",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Comercial_Medidas",
+    "nome": "Tem Dados",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Cliente Carteira",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Status Cliente Carteira",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Cliente Texto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Positivação Barra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Receita Barra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Meta Peso Barra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Preço Médio Barra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "clientes_cadastrados",
+    "nome": "Clientes Carteira Real",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "clientes_cadastrados",
+    "nome": "Clientes Positivados Real",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "clientes_cadastrados",
+    "nome": "Clientes Não Positivados Real",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "clientes_cadastrados",
+    "nome": "% Positivado Real",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Comprado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "clientes_cadastrados",
+    "nome": "Mostrar Cliente da Carteira",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Produto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Última Compra Produto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Preço Médio Produto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Dim_Rede_Financeira",
+    "nome": "Rede Financeira Tem Resultado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Dim_Rede_Financeira",
+    "nome": "Vendedor Vinculado à Rede",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Receita Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Realizado Receita Supervisor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Receita Supervisor %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Positivação Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Realizado Positivação Supervisor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Positivação Supervisor %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Peso Supervisor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Realizado Peso Supervisor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Peso Supervisor %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Preço Médio Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Realizado Preço Médio Supervisor",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Atingimento Preço Médio Supervisor %",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Indicador Supervisor",
+    "nome": "Meta Supervisor Exibição",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Indicador Supervisor",
+    "nome": "Atingimento Supervisor Exibição",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Indicador Supervisor",
+    "nome": "Medida",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Indicador Supervisor",
+    "nome": "Atingimento Supervisor Barra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Indicador Supervisor",
+    "nome": "Realizado Supervisor Texto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Produto Card 2",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Status Positivação Cliente",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Cliente Mês Atual",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Cliente Mês -1",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Cliente Mês -2",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Comprou Mês Atual",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Comprou Mês -1",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Comprou Mês -2",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Comprou Antes do Mês Anterior",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Dias sem Comprar",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Teste Linhas Mês Atual",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Exibir Cliente Positivado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Mix SKU Médio por Cliente",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Última Compra Cliente Selecionado",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Data Última Compra Contexto",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Exibir Produto Última Compra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Última Compra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Última Compra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Preço Médio Última Compra",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Faturamento Supervisor Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Supervisor Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Peso Supervisor Card",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Supervisor Geral",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "Ultima_Atualizacao_Comercial",
+    "nome": "Status Atualização Comercial",
+    "estado": "a_conferir"
+  },
+  {
+    "tabela": "PAINEL VENDAS",
+    "nome": "Meta Peso Card",
+    "estado": "a_conferir"
+  }
+]

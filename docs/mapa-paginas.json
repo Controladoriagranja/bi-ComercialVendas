@@ -1,0 +1,83 @@
+{
+  "titulo": "Comercial Vendas",
+  "origem": "PowerBi - Comercial.pbix",
+  "paginas": [
+    {
+      "id": "012e23abe1a909a9fa9e",
+      "nome_original": "FaturamentoGestor",
+      "tela_html": "faturamento",
+      "visuais": 59,
+      "estado": "base_conectada"
+    },
+    {
+      "id": "82c8aa69e2a0acb9805f",
+      "nome_original": "DetalhadamentoCliente",
+      "tela_html": "clientes",
+      "visuais": 37,
+      "estado": "base_conectada"
+    },
+    {
+      "id": "00a85f54d440d045fcad",
+      "nome_original": "DetalhadamentoVendedores",
+      "tela_html": "vendedores",
+      "visuais": 32,
+      "estado": "base_conectada"
+    },
+    {
+      "id": "733315eafc6160bcfcc6",
+      "nome_original": "DetalhamentoVendasProdutos",
+      "tela_html": "produtos",
+      "visuais": 33,
+      "estado": "base_conectada"
+    },
+    {
+      "id": "e82665ea6233085e6d77",
+      "nome_original": "Vendedores&metasGestor",
+      "tela_html": "metas",
+      "visuais": 58,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "6494befcc86bf93c37d9",
+      "nome_original": "Duplicata de Vendedores&metasGestor",
+      "tela_html": "metas",
+      "visuais": 58,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "4f4de99d747b087e19da",
+      "nome_original": "PositivaçãoEfetivaGestor",
+      "tela_html": "positivacao",
+      "visuais": 11,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "52ff48232215bbe1a3ab",
+      "nome_original": "Vendedores&metas",
+      "tela_html": "metas",
+      "visuais": 42,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "cfcec3ed5d0fde24fae4",
+      "nome_original": "Página 1",
+      "tela_html": "supervisao",
+      "visuais": 3,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "491018ff7417b259c798",
+      "nome_original": "Supervisor",
+      "tela_html": "supervisao",
+      "visuais": 56,
+      "estado": "estrutura_preparada"
+    },
+    {
+      "id": "0350ecaf655eebff9c95",
+      "nome_original": "Duplicata de Vendedores&metasGestor",
+      "tela_html": "metas",
+      "visuais": 61,
+      "estado": "estrutura_preparada"
+    }
+  ]
+}

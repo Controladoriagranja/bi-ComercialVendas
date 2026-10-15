@@ -1,0 +1,13 @@
+name: Verificar base HTML
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Contratos e recursos
+        run: python3 -m unittest discover -s tests -v
+      - name: Sintaxe JavaScript
+        run: for file in assets/js/*.js; do node --check "$file" || exit 1; done

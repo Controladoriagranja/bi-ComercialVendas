@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.parquet
+*.pbix
+*.vpax
+*.xlsx
+*.csv
+backups/
+execucoes/
+validacao/
+node_modules/
+.coverage
+.DS_Store
