@@ -12,6 +12,7 @@ Base HTML do novo Comercial da Granja Brasília, no mesmo padrão visual e mobil
 - Clique no cliente/vendedor/produto para aplicar o recorte, ordenação das vendas e consultas paginadas de cadastros.
 - Menu, Ajuda (ramal5236, Anderson ou Vitor), tema opcional, mobile sempre claro ao abrir.
 - Barras cinzas de toque no celular, gráficos sem balão sobreposto, tabelas com identificação fixa e rolagem interna.
+- Atualização analítica consolidada em uma chamada, com reaproveitamento da leitura e cache invalidado pelas cargas de dados.
 - Falha de rede mantém a última consulta confirmada. Sessão401/403 limpa os resultados.
 
 ## Telas preparadas para continuar

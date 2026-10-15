@@ -54,7 +54,7 @@
   $('conteudo').insertBefore(panel,$('rankingTabela').closest('article'));
  }
  const shortName=(name,limit)=>name.length>limit?name.slice(0,limit-1).trimEnd()+'…':name;
- function monthlyFilters(){const result={...filters,inicio:'2023-01-01',fim:picker.options.periodo.fim};for(const k of ['mes','mes_exc','dia','dia_exc'])delete result[k];return result;}
+
  function renderOverview(months,tops){
   const table=$('resumoMensal');if(!table)return;
   table.innerHTML='<table class="com-table"><thead><tr><th>Mês/Ano</th><th>Faturamento</th><th>Peso (kg)</th><th>Preço médio</th></tr></thead><tbody>'+months.map(r=>'<tr><th scope="row">'+esc(r.data.slice(5,7)+'/'+r.data.slice(0,4))+'</th><td>'+money(r.faturamento)+'</td><td>'+number(r.peso,0)+'</td><td>'+money(r.preco_medio)+'</td></tr>').join('')+(months.length?'':'<tr><td colspan="4">Nenhum movimento para os filtros.</td></tr>')+'</tbody></table>';PcpMobileScroll.table(table);
@@ -77,7 +77,9 @@
  async function load(){
   if(!charts.length||charts.some(c=>c.isDisposed()))mountReport();const id=++generation;controller?.abort();controller=new AbortController();loading=true;$('erro').hidden=true;status('Atualizando o relatório…');
   try{
-   const signal=controller.signal,extra=key==='faturamento'?Promise.all([ComercialApi.get('serie',{...monthlyFilters(),periodo:'mes'},signal),...['cliente','produto','vendedor'].map(d=>ComercialApi.get('ranking',{...filters,dimensao:d},signal))]):Promise.resolve(null),[summary,series,ranking,health,overview]=await Promise.all([ComercialApi.get('resumo',filters,signal),ComercialApi.get('serie',{...filters,periodo:period},signal),(key==='faturamento'?Promise.resolve({dados:[]}):ComercialApi.get('ranking',{...filters,dimensao:dimension},signal)),ComercialApi.get('health',{},signal),extra]);
+   const signal=controller.signal,bundle=await ComercialApi.get('painel',{...filters,periodo:period},signal);
+   if(bundle.contrato!=='comercial-html-painel-v1'||!bundle.rankings||!Array.isArray(bundle.meses))throw new ComercialApiError('Resposta incompatível com o relatório.');
+   const summary={contrato:'comercial-html-v1',medidas:bundle.medidas},series={serie:bundle.serie},ranking={dados:bundle.rankings[dimension]||[]},health={fontes:bundle.fontes},overview=key==='faturamento'?[{serie:bundle.meses},...['cliente','produto','vendedor'].map(d=>({dados:bundle.rankings[d]}))]:null;
    if(id!==generation)return;if(summary.contrato!=='comercial-html-v1'||!summary.medidas||!Array.isArray(series.serie)||!Array.isArray(ranking.dados))throw new ComercialApiError('Resposta incompatível com o relatório.');
    const m=summary.medidas;$('valor_faturamento').textContent=money(m.faturamento);$('valor_peso').textContent=number(m.peso,2)+' kg';$('valor_preco_medio').textContent=money(m.preco_medio);$('valor_cliente_destaque').textContent=m.cliente_destaque||'—';$('valor_cliente_destaque').classList.add('com-client-highlight');
    renderCharts(series.serie);renderRanking(ranking.dados);if(overview)renderOverview(overview[0].serie,{cliente:overview[1].dados,produto:overview[2].dados,vendedor:overview[3].dados});updateHealth(health);confirmed=true;

@@ -4,6 +4,7 @@ Configuração em assets/js/config.js. Prefixo exclusivo `/api/comercial-html`; 
 
 | Consulta | Resposta utilizada |
 |---|---|
+| GET /painel?periodo=dia/semana/mes | contrato=comercial-html-painel-v1; medidas,serie,meses,rankings.cliente/produto/vendedor,fontes |
 | GET /health | fontes, ultima_atualizacao/concluido_em |
 | GET /filtros | periodo.inicio/fim, unidades[].codigo/nome, padrao.ano/canal/descricao_cfop |
 | GET /resumo | contrato=comercial-html-v1, medidas: faturamento,peso,preco_medio,cliente_destaque,clientes,registros |
@@ -44,3 +45,10 @@ Painéis de ranking exibem identificação na primeira linha e barra/valor na se
 
 
 Ordem dos gráficos: Peso, Faturamento e Preço médio. Rótulos de dados mostram o número completo (moeda/quilogramas com duas casas), sem abreviações mil/mi. O espaço por categoria é dimensionado pelo texto; no celular a janela visível se adapta e a barra mantém acesso ao histórico. As escalas dos eixos continuam compactas.
+
+
+O frontend analítico utiliza `/painel`, uma chamada por atualização. O servidor lê o movimento filtrado uma vez, materializa apenas as colunas usadas e reaproveita o recorte para cartões, séries, resumo mensal e rankings. Contagens distintas reaproveitam agrupamentos completos, antes do limite de100itens. Os endpoints individuais continuam disponíveis para conferência e outros consumidores.
+
+O cache do painel dura no máximo120segundos, é limitado a32contextos e usa parâmetros normalizados + revisão de todas as fontes (carga base, maior ID, soma e quantidade das cargas OK). Uma nova carga ou troca de base muda a chave imediatamente. Consultas simultâneas iguais compartilham o mesmo processamento. Falhas não são armazenadas. A revisão e os cálculos novos usam a mesma transação de leitura consistente. O cache não dispensa autenticação.
+
+O histórico anterior a2023 continua consultável nos cartões quando solicitado explicitamente por data/ano. O resumo mensal mantém o calendário2023+ do relatório. Não houve alteração de dados, carga, fórmulas, Worker ou credenciais. As opções de plano de execução e16MB de work_mem aplicam-se somente à transação do painel; a configuração global do banco permanece igual.
