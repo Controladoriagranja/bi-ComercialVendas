@@ -70,3 +70,15 @@
 .com-top-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--muted-foreground)}.com-top-row strong{font-weight:500;font-variant-numeric:tabular-nums;font-size:10px;white-space:nowrap}.com-top-bar{display:block;height:16px}.com-top-bar i{display:block;height:100%;background:#70252c;min-width:1px}.com-top-row:hover{background:var(--muted)}.com-info{color:var(--muted-foreground);font-size:16px;cursor:help}
 @media(min-width:768px) and (max-width:1200px){.com-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:767px){.com-overview{grid-template-columns:minmax(0,1fr)}.com-top-row{grid-template-columns:minmax(80px,1fr) 65px auto;font-size:11px}.com-top-row strong{font-size:11px}.com-top-list{height:265px}.com-overview .com-table{min-width:370px}}
+
+/* Listas compactas: checkbox e nome na mesma linha, sem herdar a coluna dos filtros. */
+.comercial-report .com-picker-panel label{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;padding:6px 2px;min-height:28px;font-size:11px;font-weight:400;text-align:left}
+.comercial-report .com-picker-panel input[type=checkbox]{width:14px;max-width:14px;height:14px;min-height:14px;flex:0 0 14px;margin:0;padding:0}
+.comercial-report .com-picker-panel .com-pick-all{font-weight:600}
+.comercial-report .com-options label span{white-space:normal;line-height:1.3}
+.com-picker-panel{padding:8px;border-radius:7px;width:max(100%,250px)}
+.com-picker-panel input[type=search]{height:32px;font-size:11px}
+.com-options{max-height:220px}
+.com-overview .com-monthly header p{font-size:10px;margin-top:3px}
+.com-top-row{grid-template-columns:minmax(65px,1fr) 38px auto}
+@media(max-width:767px){.comercial-report .com-filter-field>select{font-size:16px;height:40px}.com-picker-panel{width:calc(100vw - 64px);max-width:290px}.com-top-row{grid-template-columns:minmax(70px,1fr) 45px auto}}

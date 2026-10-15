@@ -35,3 +35,6 @@ O preço médio geral não é obtido de faturamento/peso sem o recorte de vendas
 Fontes de consulta: metas, clientes_cadastrados, cadastro_de_vendedores, base_cadastro_comercial, redes_compras, grupo_produto. Os valores retornam da versão vigente no banco. O site não lê Parquet e não usa fixtures como fonte operacional.
 
 Erros:401/403 limpam resultados;422 orienta corrigir filtro; falhas de disponibilidade preservam a última consulta confirmada. Controle por AbortController/generation evita que consultas antigas sobrescrevam filtros recentes.
+
+
+Na tela Faturamento, o resumo mensal consulta todos os meses disponíveis do ano selecionado, desconsiderando Mês/Dia e o intervalo de datas desse recorte. Mantém canal, CFOP, unidade e demais filtros comerciais. Cartões, gráficos e rankings continuam seguindo o mês/dia selecionado. Mês/Ano/Unidade usam seletores nativos compactos; os demais filtros mantêm busca e seleção múltipla em listas compactas. A tabela inferior de vendas foi removida somente dessa tela; os três painéis mantêm clique para filtrar e nomes abreviados com identificação completa ao passar o cursor.

@@ -7,8 +7,8 @@ Base HTML do novo Comercial da Granja Brasília, no mesmo padrão visual e mobil
 ## O que já funciona
 
 - Faturamento, peso, preço médio e cliente destaque: valores retornados pela nova API Comercial.
-- Gráficos em barras por dia, semana ou mês; resumo mensal e painéis de clientes, produtos e vendedores.
-- Filtros do PBIX com pesquisa por código/nome, seleção múltipla e Selecionar todos, incluindo canal, supervisor, região, redes e grupo.
+- Gráficos em barras por dia, semana ou mês; resumo com todos os meses disponíveis do ano, e painéis compactos de clientes, produtos e vendedores.
+- Mês, ano e unidade em listas compactas; demais filtros com pesquisa, seleção múltipla e Selecionar todos, incluindo canal, supervisor, região, redes e grupo.
 - Clique no cliente/vendedor/produto para aplicar o recorte, ordenação das vendas e consultas paginadas de cadastros.
 - Menu, Ajuda (ramal5236, Anderson ou Vitor), tema opcional, mobile sempre claro ao abrir.
 - Barras cinzas de toque no celular, gráficos sem balão sobreposto, tabelas com identificação fixa e rolagem interna.
