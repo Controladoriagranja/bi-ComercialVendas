@@ -12,7 +12,7 @@
   {
     "tabela": "Comercial_Medidas",
     "nome": "Peso Faturado",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
@@ -257,7 +257,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Cliente Destaque Nome",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",

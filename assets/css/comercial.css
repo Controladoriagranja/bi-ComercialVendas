@@ -32,3 +32,41 @@
 .comercial-report .button:not(.secondary){background:#7a1726;border:1px solid #7a1726;color:#fff}
 .com-chart-viewport{background:#fff;border-radius:6px}
 @media(max-width:767px){.com-kpi strong{font-size:clamp(12px,3.9vw,17px);white-space:nowrap;overflow-wrap:normal}}
+
+/* Filtros comerciais: mesmas dimensões e seleções múltiplas do PBIX. */
+.com-main-filters{grid-template-columns:repeat(6,minmax(0,1fr))}
+.com-filter-field{min-width:0;display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--muted-foreground)}
+.com-picker{position:relative;color:var(--foreground);min-width:0}
+.com-picker>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--border);border-radius:6px;background:var(--background);padding:11px;min-height:40px}
+.com-picker>summary::-webkit-details-marker{display:none}
+.com-picker>summary span:first-child{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.com-picker[open]{z-index:20}
+.com-picker-panel{position:absolute;top:calc(100% + 5px);left:0;width:max(100%,280px);max-width:calc(100vw - 48px);background:var(--card);color:var(--foreground);border:1px solid var(--border);border-radius:9px;padding:10px;box-shadow:0 8px 24px #0002}
+.com-picker-panel input[type=search]{width:100%;height:36px;margin-bottom:8px;font-size:12px;min-width:0}
+.com-picker-panel label{display:flex;align-items:center;gap:8px;padding:8px 3px;cursor:pointer;font-size:12px;line-height:1.35}
+.com-picker-panel input[type=checkbox]{width:16px;height:16px;flex:0 0 16px;accent-color:#7a1726;min-height:0;margin:0}
+.com-pick-all{border-bottom:1px solid #e5dfda;font-weight:600}
+.com-options{max-height:240px;overflow-y:auto;overscroll-behavior:contain}
+.com-options label span{overflow-wrap:anywhere}
+.com-picker-status{display:block;margin-top:8px;line-height:1.4;font-size:10px}
+.com-filter-note{font-size:11px;color:#81766f;margin:14px 0 0}
+.com-main-filters>.com-filter-field:nth-last-child(-n+2) .com-picker-panel{left:auto;right:0}
+.com-client-highlight{font-size:clamp(15px,1.5vw,21px)!important;white-space:normal!important;line-height:1.35}
+@media(max-width:1100px) and (min-width:768px){.com-main-filters{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767px){
+ .com-main-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .com-picker-panel{width:calc(100vw - 64px);max-width:300px}
+ .com-filter-grid>.com-filter-field:nth-child(2n) .com-picker-panel{left:auto;right:0}
+ .com-main-filters>.com-filter-field:nth-child(2n+1) .com-picker-panel{left:0;right:auto}
+ .com-picker>summary{padding:10px 8px;font-size:11px}
+ .com-client-highlight{font-size:15px!important}
+}
+
+.com-overview{display:grid;grid-template-columns:minmax(360px,1.45fr) repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.com-overview .com-panel{padding:14px 10px}.com-overview header{margin-bottom:10px;flex-wrap:nowrap;align-items:center}
+.com-overview .com-table-scroll{max-height:290px}.com-overview .com-table th,.com-overview .com-table td{padding:7px 6px;font-size:10px}.com-overview .com-table th:first-child{min-width:60px;max-width:70px}
+.com-top-list{height:290px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#999 #ededed}
+.com-top-row{display:grid;grid-template-columns:minmax(70px,1fr) 44px auto;gap:6px;width:100%;align-items:center;border:0;background:transparent;color:var(--foreground);padding:8px 0;cursor:pointer;font:inherit;font-size:10px;text-align:left;min-height:31px}
+.com-top-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--muted-foreground)}.com-top-row strong{font-weight:500;font-variant-numeric:tabular-nums;font-size:10px;white-space:nowrap}.com-top-bar{display:block;height:16px}.com-top-bar i{display:block;height:100%;background:#70252c;min-width:1px}.com-top-row:hover{background:var(--muted)}.com-info{color:var(--muted-foreground);font-size:16px;cursor:help}
+@media(min-width:768px) and (max-width:1200px){.com-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){.com-overview{grid-template-columns:minmax(0,1fr)}.com-top-row{grid-template-columns:minmax(80px,1fr) 65px auto;font-size:11px}.com-top-row strong{font-size:11px}.com-top-list{height:265px}.com-overview .com-table{min-width:370px}}

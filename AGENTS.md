@@ -6,7 +6,7 @@
 - Nenhum dado operacional, token, senha, Parquet, PBIX, planilha ou resposta autenticada entra neste repositório público.
 - Não inventar metas, positivar clientes por aproximação, somar preços médios ou copiar valores das imagens para o site.
 - Relatórios ainda não portados devem ser identificados como em desenvolvimento. Manter o estado em docs/medidas.json e docs/mapa-paginas.json atualizado.
-- Preservar datas do Comercial; não aplicar automaticamente D−1. A unidade é a da nota (Uni), não o contexto de extração.
+- Preservar datas do Comercial; não aplicar automaticamente D−1. A unidade da nota é Uni, não o contexto de extração. O filtro visual Unidade reproduz o cadastro comercial do PBIX por Uni+Vendedor (unidade_cadastro), separado do parâmetro técnico unidade.
 - Preservar login CENTRAL/Worker; nunca colocar Basic no JavaScript nem criar outro login.
 - Mobile sempre inicia claro; controles de período e barras permitem consultar o histórico; limitar deslocamento horizontal ao componente.
 - Verificar `python -m unittest discover -s tests -v`, sintaxeJS e navegador nas larguras320/390/1366 antes de publicar alterações relevantes.

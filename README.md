@@ -6,9 +6,9 @@ Base HTML do novo Comercial da Granja Brasília, no mesmo padrão visual e mobil
 
 ## O que já funciona
 
-- Faturamento, peso, preço médio e clientes com movimento: valores retornados pela nova API Comercial.
-- Evolução por dia, semana ou mês; agrupamento de vendas por vendedor, cliente, produto e UF.
-- Filtros de período/unidade e filtros adicionais por códigos, UF, família, CFOP e cidade.
+- Faturamento, peso, preço médio e cliente destaque: valores retornados pela nova API Comercial.
+- Gráficos em barras por dia, semana ou mês; resumo mensal e painéis de clientes, produtos e vendedores.
+- Filtros do PBIX com pesquisa por código/nome, seleção múltipla e Selecionar todos, incluindo canal, supervisor, região, redes e grupo.
 - Clique no cliente/vendedor/produto para aplicar o recorte, ordenação das vendas e consultas paginadas de cadastros.
 - Menu, Ajuda (ramal5236, Anderson ou Vitor), tema opcional, mobile sempre claro ao abrir.
 - Barras cinzas de toque no celular, gráficos sem balão sobreposto, tabelas com identificação fixa e rolagem interna.
@@ -47,7 +47,8 @@ A CI também verifica sintaxe dos arquivos JavaScript. Em navegador, conferir320
 ## Organização
 
 - `index.html`: estrutura única, página selecionada por `?relatorio=`.
-- `assets/js/app.js`: telas, estados, filtros e apresentação.
+- `assets/js/app.js`: telas, estados e apresentação.
+- `assets/js/filters.js`: filtros com pesquisa, seleção múltipla e contexto inicial do PBIX.
 - `assets/js/api.js`: cliente autenticado e erros; sem fórmulas financeiras.
 - `assets/js/config.js`: endereço do Worker e prefixo `/api/comercial-html`.
 - `assets/js/mobile-scroll.js`: controle de rolagem reaproveitado do PCP.
