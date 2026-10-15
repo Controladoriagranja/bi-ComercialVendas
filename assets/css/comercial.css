@@ -81,4 +81,15 @@
 .com-options{max-height:220px}
 .com-overview .com-monthly header p{font-size:10px;margin-top:3px}
 .com-top-row{grid-template-columns:minmax(65px,1fr) 38px auto}
-@media(max-width:767px){.comercial-report .com-filter-field>select{font-size:16px;height:40px}.com-picker-panel{width:calc(100vw - 64px);max-width:290px}.com-top-row{grid-template-columns:minmax(70px,1fr) 45px auto}}
+@media(max-width:767px){.com-picker-panel{width:calc(100vw - 64px);max-width:290px}.com-top-row{grid-template-columns:minmax(70px,1fr) 45px auto}}
+
+/* Rankings: identificação acima; escala compartilhada e valor completo abaixo. */
+.com-overview .com-table-scroll{max-height:330px}
+.com-top-list{height:330px;padding-right:8px;box-sizing:border-box;scrollbar-gutter:stable}
+.com-top-row{grid-template-columns:minmax(0,1fr) var(--com-rank-value-width,120px);column-gap:10px;row-gap:6px;padding:8px 6px;min-height:47px;border-bottom:1px solid var(--border);box-sizing:border-box;font-size:11px}
+.com-top-name{grid-column:1/-1;grid-row:1;font-size:11px;line-height:1.4;color:var(--foreground)}
+.com-top-bar{grid-column:1;grid-row:2;height:7px;background:var(--muted);border-radius:4px;overflow:hidden;min-width:0;align-self:center}
+.com-top-bar i{min-width:2px;border-radius:4px;background:#7a2633}
+.com-top-row strong{grid-column:2;grid-row:2;text-align:right;font-size:11px;font-weight:600;line-height:1.4;font-variant-numeric:tabular-nums;white-space:nowrap;padding-right:2px}
+.com-top-row:last-child{border-bottom:0}
+@media(max-width:767px){.com-top-list{height:330px;padding-right:8px}.com-top-row{grid-template-columns:minmax(0,1fr) var(--com-rank-value-width,120px);padding:9px 4px;min-height:49px}.com-top-name,.com-top-row strong{font-size:11px}}

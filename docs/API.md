@@ -37,4 +37,10 @@ Fontes de consulta: metas, clientes_cadastrados, cadastro_de_vendedores, base_ca
 Erros:401/403 limpam resultados;422 orienta corrigir filtro; falhas de disponibilidade preservam a última consulta confirmada. Controle por AbortController/generation evita que consultas antigas sobrescrevam filtros recentes.
 
 
-Na tela Faturamento, o resumo mensal consulta todos os meses disponíveis do ano selecionado, desconsiderando Mês/Dia e o intervalo de datas desse recorte. Mantém canal, CFOP, unidade e demais filtros comerciais. Cartões, gráficos e rankings continuam seguindo o mês/dia selecionado. Mês/Ano/Unidade usam seletores nativos compactos; os demais filtros mantêm busca e seleção múltipla em listas compactas. A tabela inferior de vendas foi removida somente dessa tela; os três painéis mantêm clique para filtrar e nomes abreviados com identificação completa ao passar o cursor.
+Na tela Faturamento, o resumo mensal consulta todos os meses disponíveis do ano selecionado, desconsiderando Mês/Dia e o intervalo de datas desse recorte. Mantém canal, CFOP, unidade e demais filtros comerciais. Cartões, gráficos e rankings continuam seguindo o mês/dia selecionado. Todos os17filtros usam o mesmo seletor compacto com pesquisa, caixas de seleção múltipla e Selecionar todos, inclusive Mês/Ano/Unidade. Não há alternância de comportamento entre os campos. A tabela inferior de vendas foi removida somente dessa tela; os três painéis mantêm clique para filtrar e nomes abreviados com identificação completa ao passar o cursor.
+
+
+Painéis de ranking exibem identificação na primeira linha e barra/valor na segunda, com largura reservada ao maior valor formatado do painel e espaço próprio para a rolagem. O comprimento das barras usa a mesma escala dentro de cada painel; a apresentação não recalcula totais nem modifica valores da API.
+
+
+Ordem dos gráficos: Peso, Faturamento e Preço médio. Rótulos de dados mostram o número completo (moeda/quilogramas com duas casas), sem abreviações mil/mi. O espaço por categoria é dimensionado pelo texto; no celular a janela visível se adapta e a barra mantém acesso ao histórico. As escalas dos eixos continuam compactas.
