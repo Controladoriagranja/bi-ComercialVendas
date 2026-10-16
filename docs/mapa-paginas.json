@@ -14,7 +14,8 @@
       "nome_original": "DetalhadamentoCliente",
       "tela_html": "clientes",
       "visuais": 37,
-      "estado": "base_conectada"
+      "estado": "base_conectada",
+      "observacao": "Cartões de cliente selecionado, faturamento, pedidos e última compra, ranking e vendas detalhadas com regras da página original."
     },
     {
       "id": "00a85f54d440d045fcad",
@@ -35,28 +36,32 @@
       "nome_original": "Vendedores&metasGestor",
       "tela_html": "metas",
       "visuais": 58,
-      "estado": "estrutura_preparada"
+      "estado": "base_conectada",
+      "observacao": "Análises reais portadas; duplicatas originais compartilham a tela HTML. Ver contrato e inventário de medidas; não implica migração de todos os visuais das duplicatas."
     },
     {
       "id": "6494befcc86bf93c37d9",
       "nome_original": "Duplicata de Vendedores&metasGestor",
       "tela_html": "metas",
       "visuais": 58,
-      "estado": "estrutura_preparada"
+      "estado": "base_conectada",
+      "observacao": "Análises reais portadas; duplicatas originais compartilham a tela HTML. Ver contrato e inventário de medidas; não implica migração de todos os visuais das duplicatas."
     },
     {
       "id": "4f4de99d747b087e19da",
       "nome_original": "PositivaçãoEfetivaGestor",
       "tela_html": "positivacao",
       "visuais": 11,
-      "estado": "estrutura_preparada"
+      "estado": "base_conectada",
+      "observacao": "Análises reais portadas; duplicatas originais compartilham a tela HTML. Ver contrato e inventário de medidas; não implica migração de todos os visuais das duplicatas."
     },
     {
       "id": "52ff48232215bbe1a3ab",
       "nome_original": "Vendedores&metas",
       "tela_html": "metas",
       "visuais": 42,
-      "estado": "estrutura_preparada"
+      "estado": "base_conectada",
+      "observacao": "Análises reais portadas; duplicatas originais compartilham a tela HTML. Ver contrato e inventário de medidas; não implica migração de todos os visuais das duplicatas."
     },
     {
       "id": "cfcec3ed5d0fde24fae4",
@@ -77,7 +82,8 @@
       "nome_original": "Duplicata de Vendedores&metasGestor",
       "tela_html": "metas",
       "visuais": 61,
-      "estado": "estrutura_preparada"
+      "estado": "base_conectada",
+      "observacao": "Análises reais portadas; duplicatas originais compartilham a tela HTML. Ver contrato e inventário de medidas; não implica migração de todos os visuais das duplicatas."
     }
   ]
 }

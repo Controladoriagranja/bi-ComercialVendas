@@ -107,7 +107,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Peso",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -117,7 +117,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Meta Peso %",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -127,37 +127,37 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Receita %",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Receita",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Preço Médio Meta",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Preço Médio %",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Positivação Realizado",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Positivação",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Positivação %",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -262,32 +262,32 @@
   {
     "tabela": "Comercial_Medidas",
     "nome": "Cliente Selecionado Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
     "nome": "Faturamento Cliente Período",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
     "nome": "Faturamento Cliente Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
     "nome": "Pedidos Cliente Período",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
     "nome": "Última Compra Cliente",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
     "nome": "Última Compra Cliente Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Comercial_Medidas",
@@ -342,47 +342,47 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Positivação Barra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Receita Barra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Meta Peso Barra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Atingimento Preço Médio Barra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "clientes_cadastrados",
     "nome": "Clientes Carteira Real",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "clientes_cadastrados",
     "nome": "Clientes Positivados Real",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "clientes_cadastrados",
     "nome": "Clientes Não Positivados Real",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "clientes_cadastrados",
     "nome": "% Positivado Real",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Peso Comprado",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "clientes_cadastrados",
@@ -392,17 +392,17 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Faturamento Produto",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Última Compra Produto",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Preço Médio Produto",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "Dim_Rede_Financeira",
@@ -417,7 +417,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Receita Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -462,7 +462,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Preço Médio Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -507,7 +507,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Status Positivação Cliente",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -527,17 +527,17 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Comprou Mês Atual",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Comprou Mês -1",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Comprou Mês -2",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -547,7 +547,7 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Dias sem Comprar",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -562,12 +562,12 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Mix SKU Médio por Cliente",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Última Compra Cliente Selecionado",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -577,22 +577,22 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Exibir Produto Última Compra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Peso Última Compra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Faturamento Última Compra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Preço Médio Última Compra",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   },
   {
     "tabela": "PAINEL VENDAS",
@@ -622,6 +622,6 @@
   {
     "tabela": "PAINEL VENDAS",
     "nome": "Meta Peso Card",
-    "estado": "a_conferir"
+    "estado": "disponivel_api"
   }
 ]

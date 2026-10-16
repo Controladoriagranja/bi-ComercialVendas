@@ -8,6 +8,7 @@ Base HTML do novo Comercial da Granja Brasília, no mesmo padrão visual e mobil
 
 - Faturamento, peso, preço médio e cliente destaque: valores retornados pela nova API Comercial.
 - Gráficos em barras por dia, semana ou mês; resumo com todos os meses disponíveis do ano, e painéis compactos de clientes, produtos e vendedores.
+- Filtros aplicados automaticamente após a seleção, sem botão Atualizar. Abertura sempre com calendário Todos e contexto comercial próprio de cada tela.
 - Todos os filtros em listas compactas com pesquisa, seleção múltipla e Selecionar todos, incluindo mês, ano, unidade, canal, supervisor, região, redes e grupo.
 - Clique no cliente/vendedor/produto para aplicar o recorte, ordenação das vendas e consultas paginadas de cadastros.
 - Menu, Ajuda (ramal5236, Anderson ou Vitor), tema opcional, mobile sempre claro ao abrir.
@@ -20,11 +21,11 @@ Base HTML do novo Comercial da Granja Brasília, no mesmo padrão visual e mobil
 | Tela | Estado |
 |---|---|
 | Faturamento | Base conectada: indicadores, séries e agrupamentos |
-| Detalhamento de Clientes | Base conectada: recorte e vendas por cliente |
+| Detalhamento de Vendas por Cliente | Cliente selecionado, faturamento, pedidos, última compra, ranking e vendas detalhadas paginadas conforme regras do PBIX |
 | Detalhamento de Vendedores | Base conectada: recorte e vendas por vendedor |
 | Vendas por Produto | Base conectada: recorte e vendas por produto |
-| Vendedores e Metas | Estrutura e consulta de metas; comparações ainda em desenvolvimento |
-| Positivação Efetiva | Estrutura e consulta de carteira; indicadores ainda em desenvolvimento |
+| Metas e Vendedores | Objetivos e realizado, atingimento por vendedor, carteira expansível, supervisores, mix, produtos e famílias |
+| Positivação Efetiva | Status por cliente, meses de compra, última compra e produtos da compra selecionada |
 | Supervisão | Estrutura e consulta da equipe; consolidação ainda em desenvolvimento |
 
 Isso é a base para desenvolver o relatório: **não é uma declaração de equivalência completa às125medidas do PBIX**. As11páginas originais, incluindo duplicatas, estão mapeadas em [docs/mapa-paginas.json](docs/mapa-paginas.json). O inventário de medidas e seus estados está em [docs/medidas.json](docs/medidas.json). Não são exibidos números simulados para análises pendentes.
@@ -49,6 +50,8 @@ A CI também verifica sintaxe dos arquivos JavaScript. Em navegador, conferir320
 
 - `index.html`: estrutura única, página selecionada por `?relatorio=`.
 - `assets/js/app.js`: telas, estados e apresentação.
+- `assets/js/analysis.js`: apresentação de metas e positivação; cálculos retornados pela API.
+- `assets/js/clients.js`: apresentação dos quatro cartões e das vendas detalhadas por cliente.
 - `assets/js/filters.js`: filtros com pesquisa, seleção múltipla e contexto inicial do PBIX.
 - `assets/js/api.js`: cliente autenticado e erros; sem fórmulas financeiras.
 - `assets/js/config.js`: endereço do Worker e prefixo `/api/comercial-html`.
