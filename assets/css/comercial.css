@@ -142,3 +142,10 @@ body[data-page=positivacao] .com-main-filters{grid-template-columns:repeat(4,min
 }
 .com-expand-carteira{border:1px solid var(--border);border-radius:3px;background:var(--card);color:var(--primary);font:inherit;cursor:pointer;margin-right:7px;width:21px;height:21px}.com-carteira-children{max-height:360px;overflow:auto;min-width:550px}.com-analysis-table .com-carteira-detail>td{max-width:none;width:auto;position:static}.com-carteira-children .com-table th:first-child{min-width:280px}
 .com-analysis-table button.com-row-link{height:auto;min-height:0;line-height:1.3;padding:0!important}.com-analysis-table th,.com-analysis-table td{padding:6px 9px!important}
+/* Seleção direta e leitura centralizada dos valores. */
+.com-analysis-table th:not(:first-child),.com-analysis-table td:not(:first-child),.com-carteira-children .com-table th:not(:first-child),.com-carteira-children .com-table td:not(:first-child),.com-supervisor .com-table th:not(:first-child),.com-supervisor .com-table td:not(:first-child){text-align:center}
+.com-goal-kpi>div{text-align:center}.com-client-kpis .com-kpi{text-align:center}
+.com-client-table th:nth-child(n+4),.com-client-table td:nth-child(n+4){text-align:center}
+.com-supervisor summary strong{text-align:center;min-width:140px}
+#metasFamilias .com-top-list{height:310px}#metasFamilias .com-top-row strong{text-align:center}
+#metasCarteira button[aria-expanded=true]{color:var(--primary);text-decoration:underline}

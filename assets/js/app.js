@@ -65,7 +65,7 @@
    const box=$('top_'+dim),max=Math.max(0,...rows.map(r=>Math.abs(r.faturamento||0)));
    box.innerHTML=rows.map(r=>'<button type="button" class="com-top-row" data-code="'+esc(r.codigo)+'" title="'+esc(r.codigo+' - '+r.nome)+'"><span class="com-top-name">'+esc(shortName(r.codigo+' - '+r.nome,30))+'</span><span class="com-top-bar" aria-hidden="true"><i style="width:'+Math.max(1,max?Math.abs(r.faturamento||0)/max*100:0)+'%"></i></span><strong>'+money(r.faturamento)+'</strong></button>').join('')||'<p class="com-empty">Nenhum movimento para os filtros.</p>';
    const valueWidth=Math.ceil(Math.max(0,...Array.from(box.querySelectorAll('strong'),e=>{const range=document.createRange();range.selectNodeContents(e);return range.getBoundingClientRect().width;})))+8;box.style.setProperty('--com-rank-value-width',valueWidth+'px');
-   box.querySelectorAll('[data-code]').forEach(b=>b.onclick=()=>{if(b.dataset.code==='null')return;picker.set(dim,b.dataset.code,b.title);if(readFilters())load();});
+   box.querySelectorAll('[data-code]').forEach(b=>b.onclick=()=>{if(b.dataset.code==='null')return;toggleSelection(dim,b.dataset.code,b.title);if(readFilters())load();});
   }
  }
  let rankingRows=[];
@@ -75,7 +75,7 @@
   $('rankingTitulo').textContent='Vendas por '+title.toLowerCase();const data=[...rows].sort((a,b)=>{const av=a[sort.key],bv=b[sort.key];if(av==null)return bv==null?0:1;if(bv==null)return -1;return (sort.desc?-1:1)*(typeof av==='number'?av-bv:String(av).localeCompare(String(bv),'pt-BR'));});
   box.innerHTML='<table class="com-table"><thead><tr><th scope="col">'+title+'</th>'+[['faturamento','Faturamento (R$)'],['peso','Peso (kg)']].map(([k,label])=>'<th scope="col"><button type="button" class="com-row-link" data-sort="'+k+'">'+label+(sort.key===k?(sort.desc?' ↓':' ↑'):'')+'</button></th>').join('')+'</tr></thead><tbody>'+data.map(r=>'<tr><th scope="row"><button type="button" class="com-row-link" data-code="'+esc(r.codigo)+'">'+esc(r.nome||'Sem identificação')+'<small>'+esc(r.codigo==null?'Sem código':'Código '+r.codigo)+'</small></button></th><td>'+money(r.faturamento)+'</td><td>'+number(r.peso,2)+'</td></tr>').join('')+(data.length?'':'<tr><td colspan="3" class="com-empty">Nenhuma venda disponível para os filtros selecionados.</td></tr>')+'</tbody></table>';
   box.querySelectorAll('[data-sort]').forEach(b=>b.onclick=()=>{sort.desc=sort.key===b.dataset.sort?!sort.desc:true;sort.key=b.dataset.sort;renderRanking(rankingRows);});
-  box.querySelectorAll('[data-code]').forEach(b=>b.onclick=()=>{if(!b.dataset.code||b.dataset.code==='null')return;picker.set(dimension,b.dataset.code,b.textContent);if(readFilters())load();});PcpMobileScroll.table(box);
+  box.querySelectorAll('[data-code]').forEach(b=>b.onclick=()=>{if(!b.dataset.code||b.dataset.code==='null')return;toggleSelection(dimension,b.dataset.code,b.textContent);if(readFilters())load();});PcpMobileScroll.table(box);
  }
  async function load(){
   if(key==='clientes')return loadClients();
@@ -93,14 +93,15 @@
    status('Dados reais · '+date(m.inicio)+' a '+date(m.fim)+' · '+(filters.unidade_cadastro?.length?filters.unidade_cadastro.join(', '):'Todas as unidades')+' · '+(filters.canal?.join(', ')||'Todos os canais')+' · '+(filters.descricao_cfop?.length?filters.descricao_cfop.length+' descrições CFOP · ':'')+number(m.registros)+' registros no período');
   }catch(e){if(id===generation)error(e);}finally{if(id===generation)loading=false;}
  }
- function mountAnalysis(){analysisReport=new ComercialAnalysis(key,$('conteudo'),{filters:()=>filters,select:(field,code,label)=>{picker.set(field,code,label);analysisPage=1;if(readFilters())loadAnalysis();},page:delta=>{analysisPage=Math.max(1,analysisPage+delta);loadAnalysis();}},{money,number,date,esc});}
+ function toggleSelection(field,code,label){const same=filters[field]?.length===1&&String(filters[field][0])===String(code)&&!filters[field+'_exc']?.length;picker.set(field,same?'':code,same?'':label);}
+ function mountAnalysis(){analysisReport=new ComercialAnalysis(key,$('conteudo'),{filters:()=>filters,select:(field,code,label)=>{toggleSelection(field,code,label);analysisPage=1;if(readFilters())loadAnalysis();},page:delta=>{analysisPage=Math.max(1,analysisPage+delta);loadAnalysis();}},{money,number,date,esc});}
  async function loadAnalysis(){
   if(!analysisReport||!$('conteudo').children.length)mountAnalysis();const id=++generation;controller?.abort();controller=new AbortController();loading=true;$('erro').hidden=true;status('Consultando '+screen.title.toLocaleLowerCase()+'…');
   try{const data=await ComercialApi.get(key,{...filters,...(key==='positivacao'?{pagina:analysisPage,tamanho:100}:{})},controller.signal);if(id!==generation)return;if(data.contrato!=='comercial-html-'+key+'-v1'||!Array.isArray(data.fontes))throw new ComercialApiError('Resposta incompatível com o relatório.');analysisReport.render(data);updateHealth(data);confirmed=true;status('Dados reais · '+screen.title+' · '+(key==='positivacao'?number(data.total)+' clientes':'Metas e realizado no recorte selecionado'));}catch(e){if(id===generation)error(e);}finally{if(id===generation)loading=false;}
  }
  function mountClients(){
   clientReport=new ComercialClients($('conteudo'),{
-   select:(code,label)=>{picker.set('cliente',code,label);clientPage=1;if(readFilters())loadClients();},
+   select:(code,label)=>{toggleSelection('cliente',code,label);clientPage=1;if(readFilters())loadClients();},
    page:delta=>{clientPage=Math.max(1,clientPage+delta);loadClients();},
    sort:field=>{clientSort={key:field,desc:clientSort.key===field?!clientSort.desc:!['data','vendedor','produto','numero'].includes(field)};clientPage=1;loadClients();}
   },{money,number,date,esc});
