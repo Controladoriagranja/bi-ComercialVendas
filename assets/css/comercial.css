@@ -154,3 +154,54 @@ body[data-page=positivacao] .com-main-filters{grid-template-columns:repeat(4,min
 @media(prefers-reduced-motion:reduce){.com-loading-spinner{animation:none}}
 @media(min-width:768px){.com-chart-viewport.pcp-mobile-scroll-host{padding-bottom:38px;overflow:hidden}.com-chart-viewport>.pcp-mobile-scroll-range{position:absolute;bottom:0;min-height:32px;height:32px;margin:0;padding:0;border:0;appearance:none;-webkit-appearance:none;background:transparent;cursor:ew-resize;z-index:4;box-sizing:border-box}.com-chart-viewport>.pcp-mobile-scroll-range::-webkit-slider-runnable-track{height:10px;background:#ededed;border-radius:6px}.com-chart-viewport>.pcp-mobile-scroll-range::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:var(--pcp-scroll-thumb,48px);height:16px;margin-top:-3px;background:#999;border:0;border-radius:5px}.com-chart-viewport>.pcp-mobile-scroll-range::-moz-range-track{height:10px;background:#ededed;border-radius:6px}.com-chart-viewport>.pcp-mobile-scroll-range::-moz-range-thumb{width:var(--pcp-scroll-thumb,48px);height:16px;background:#999;border:0;border-radius:5px}}
 @media(max-width:767px){.com-loading-indicator{top:12px;right:12px;padding:11px 14px;font-size:11px;max-width:calc(100vw - 24px)}.com-chart-note{font-size:10px;padding:8px 9px}}
+
+/* Identificação agrupada apenas no celular; a tabela completa mantém as sete colunas no desktop. */
+.com-mobile-sale{display:none}
+@media(min-width:768px){.comercial-report .com-client-table th:nth-child(2),.comercial-report .com-client-table td:nth-child(2){position:sticky;left:0;z-index:2;width:88px;min-width:88px;max-width:88px;background:var(--card);text-align:left;border-right:1px solid var(--border)}.com-client-table tbody tr:nth-child(even)>:nth-child(2){background:var(--muted)}.com-client-table thead th:nth-child(2){z-index:5}.com-client-table td:nth-child(3),.com-client-table td:nth-child(4){text-align:left;font-weight:400}}
+@media(max-width:767px){
+ .comercial-report .com-table-scroll,.comercial-report .com-carteira-children{overflow-x:hidden;overflow-y:auto;touch-action:pan-y;overscroll-behavior-x:none}
+ .comercial-report .com-chart canvas{touch-action:pan-y!important}
+ .comercial-report .com-table{table-layout:auto;width:max-content;min-width:100%;font-size:10px;line-height:1.4}
+ .comercial-report .com-table th,.comercial-report .com-table td{box-sizing:border-box;text-align:center!important;padding:7px 5px!important;width:auto;min-width:62px;max-width:none}
+ .comercial-report .com-table thead th{white-space:normal;font-size:9px;line-height:1.35;vertical-align:middle;height:40px}
+ .comercial-report .com-table th:first-child,.comercial-report .com-table td:first-child{width:104px;min-width:104px;max-width:104px;white-space:normal;overflow-wrap:anywhere}
+ .comercial-report .com-table .com-row-link{text-align:center;width:100%;max-width:none;white-space:normal;display:block;overflow:visible;font-size:10px;line-height:1.4}
+ .comercial-report .com-table [data-type=number]{min-width:54px;width:54px}
+ .comercial-report .com-table [data-type=money]{min-width:100px;width:100px}
+ .comercial-report .com-table [data-type=weight]{min-width:88px;width:88px}
+ .comercial-report .com-table [data-type=date]{min-width:70px;width:70px}
+ .comercial-report .com-table [data-type=percent]{min-width:52px;width:52px}
+ .comercial-report .com-table [data-type=check]{min-width:43px;width:43px}
+ .comercial-report .com-table [data-type=status]{min-width:78px;width:78px}
+ .comercial-report .com-analysis-table,.comercial-report #metasVendedores .com-table,.comercial-report #metasMix .com-table,.comercial-report .com-positivacao-layout .com-table{min-width:100%}
+ .comercial-report .com-achievement{min-width:0;padding:4px 2px}
+ .com-customer-status{gap:4px;white-space:normal;justify-content:center;font-size:9px}.com-customer-status i{flex:none;width:7px;height:7px}
+ .comercial-report .com-table tfoot td{font-weight:700;background:var(--card)}
+ .comercial-report .com-client-table{table-layout:fixed;min-width:426px;width:426px}
+ .comercial-report .com-client-table .com-mobile-sale{display:table-cell;width:104px;min-width:104px;max-width:104px}
+ .com-client-table col.com-mobile-sale{display:table-column!important}
+ .comercial-report .com-client-table tr>:nth-child(2),.comercial-report .com-client-table tr>:nth-child(3),.comercial-report .com-client-table tr>:nth-child(4),.com-client-table col:nth-child(2),.com-client-table col:nth-child(3),.com-client-table col:nth-child(4){display:none}
+ .com-client-table col:nth-child(5){width:68px!important}.com-client-table col:nth-child(6){width:100px!important}.com-client-table col:nth-child(7){width:72px!important}.com-client-table col:nth-child(8){width:82px!important}
+ .com-client-table .com-mobile-sale time{display:block;font-size:9px;font-weight:600;color:var(--primary);margin-bottom:4px}
+ .com-client-table .com-mobile-sale strong,.com-client-table .com-mobile-sale small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;white-space:normal;line-height:1.4;font-size:9px;font-weight:500}
+ .com-client-table .com-mobile-sale small{margin-top:4px;color:var(--muted-foreground);font-size:8px}
+ .com-client-table thead .com-row-link{font-size:9px!important}
+ .comercial-report .com-carteira-children{min-width:0;max-width:100%}.comercial-report .com-carteira-detail>td{position:static;width:auto;max-width:none;padding:6px!important}.comercial-report .com-carteira-detail .com-table th:first-child{min-width:104px}
+ .comercial-report .com-supervisor table{min-width:100%}.comercial-report .com-supervisor table th:first-child{min-width:65px;width:65px;max-width:65px}
+ .com-supervisor summary{align-items:center}.com-supervisor summary strong{min-width:0;font-size:10px}
+ .comercial-report .pcp-mobile-table-shell{padding-bottom:66px}.comercial-report .pcp-mobile-table-shell>.pcp-mobile-scroll-range{bottom:18px;touch-action:none}
+ .com-table-guide{position:absolute;bottom:0;left:0;right:0;text-align:center;font-size:9px;color:var(--muted-foreground);line-height:18px}
+ .comercial-report .pcp-mobile-table-shell.com-table-fits{padding-bottom:22px}
+}
+
+.com-mobile-sort{display:none}
+@media(max-width:767px){
+ .comercial-report .com-client-table{min-width:410px;width:410px}
+ .comercial-report .com-client-table .com-mobile-sale{width:96px;min-width:96px;max-width:96px}
+ .com-client-table col:nth-child(5){width:64px!important}.com-client-table col:nth-child(6){width:96px!important}
+ .com-mobile-sort{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px;font-size:10px;color:var(--muted-foreground)}
+ .com-mobile-sort select{font:inherit;font-size:11px;min-height:32px;max-width:70%;border:1px solid var(--border);border-radius:5px;background:var(--card);color:var(--foreground);padding:4px 6px}
+}
+
+.com-mobile-customer-status{display:none}
+@media(max-width:767px){#positivacaoClientes [data-type=status]{display:none}#positivacaoClientes .com-mobile-customer-status{display:block;margin-top:5px;font-weight:400}}
