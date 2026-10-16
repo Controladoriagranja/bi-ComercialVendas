@@ -17,29 +17,14 @@
         "href": "index.html?relatorio=clientes"
     },
     {
-        "id": "vendedores",
-        "label": "Detalhamento de Vendedores",
-        "href": "index.html?relatorio=vendedores"
-    },
-    {
-        "id": "produtos",
-        "label": "Vendas por Produto",
-        "href": "index.html?relatorio=produtos"
-    },
-    {
-        "id": "metas",
-        "label": "Vendedores e Metas",
-        "href": "index.html?relatorio=metas"
-    },
-    {
         "id": "positivacao",
         "label": "Positivação Efetiva",
         "href": "index.html?relatorio=positivacao"
     },
     {
-        "id": "supervisao",
-        "label": "Supervisão",
-        "href": "index.html?relatorio=supervisao"
+        "id": "metas",
+        "label": "Vendedores e Metas",
+        "href": "index.html?relatorio=metas"
     }
 ];
 
