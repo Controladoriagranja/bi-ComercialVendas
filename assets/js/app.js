@@ -13,7 +13,7 @@
  function error(e){
   if(e.name==='AbortError')return;
   $('erro').textContent=e.message+(confirmed&&!([401,403].includes(e.status))?' O relatório mantém a última consulta confirmada; os novos filtros ainda não foram aplicados.':'');$('erro').hidden=false;
-  if([401,403].includes(e.status)){confirmed=false;charts.forEach(c=>c.dispose());charts=[];$('conteudo').innerHTML='<section class="card com-development"><h2>Acesse pela CENTRAL</h2><p>Entre na CENTRAL e abra o Comercial Vendas para consultar os relatórios com sua sessão.</p></section>';status('Sessão necessária para consultar os dados.');}
+  if([401,403].includes(e.status)){confirmed=false;charts.forEach(c=>c.dispose());charts=[];$('conteudo').innerHTML='<section class="card com-development"><h2>Acesso ao Comercial</h2><p>Entre pela CENTRAL. Se sua sessão estiver ativa, solicite ao administrador a configuração do seu acesso ao Comercial.</p></section>';status('Sessão necessária para consultar os dados.');}
   else if(!confirmed)status('Consulta não concluída.');
  }
  function updateHealth(data){
@@ -21,7 +21,7 @@
   $('ultimaAtualizacao').textContent=values.length?new Date(Math.max(...values)).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',hour12:false}):'—';
  }
  let picker,analysisReport,analysisPage=1,clientReport,clientPage=1,clientSort={key:'produto',desc:true};
- function renderFilters(options){const settings=['clientes','metas','positivacao'].includes(key)?{...options,visao:key,padrao:options['padrao_'+key]}:options;picker=new ComercialFilters($('filtros'),settings,new URLSearchParams(),()=>{clientPage=1;analysisPage=1;if(readFilters())load();});if(key==='clientes')$('filtros').querySelector('.com-actions').insertAdjacentHTML('afterbegin','<a class="button secondary" href="index.html?relatorio=faturamento">← Dashboard</a>');readFilters();}
+ function renderFilters(options){const access=options.acesso;const restricted=access&&['seller','supervisor'].includes(access.modo);const settings=['clientes','metas','positivacao'].includes(key)?{...options,visao:key,padrao:options['padrao_'+key]}:options;picker=new ComercialFilters($('filtros'),settings,new URLSearchParams(),()=>{clientPage=1;analysisPage=1;if(readFilters())load();});if(restricted){const notice=document.createElement('p');notice.className='com-access-scope';notice.setAttribute('role','note');notice.textContent='Acesso restrito: '+(access.modo==='seller'?'vendedor ':'equipe do supervisor ')+access.codigo+'. Limpar filtros mantém essa permissão.';$('filtros').append(notice);}if(key==='clientes')$('filtros').querySelector('.com-actions').insertAdjacentHTML('afterbegin','<a class="button secondary" href="index.html?relatorio=faturamento">← Dashboard</a>');readFilters();}
  function readFilters(){
   const next=picker.read();if(!next)return false;filters=next;for(const[field,value]of visualSelections){if(filters[field]?.length!==1||String(filters[field][0])!==value||filters[field+'_exc']?.length)visualSelections.delete(field);}
   const params=new URLSearchParams();params.set('relatorio',key);
