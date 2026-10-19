@@ -95,3 +95,9 @@ Ramo de atividade: disponível em Outros filtros nas quatro telas. `ramo_ativida
 
 
 Interação dos quatro painéis: clicar na descrição ou barra seleciona cliente, vendedor, família ou produto e atualiza os cartões, séries e todas as listas pela mesma consulta consolidada. Seleções de campos diferentes podem ser combinadas. Segundo clique no item selecionado retira somente esse campo. Clique em área em branco dos painéis ou do canvas retira as seleções feitas por clique, preservando os filtros manuais. Controles de período/rolagem e o toque nos dados do gráfico não limpam essas seleções. O estado selecionado é destacado visualmente e exposto por aria-pressed.
+
+## CFOP obrigatório por acesso
+
+`GET /filtros` informa `acesso.cfop_vendas_fixo`. Para os acessos `seller` e `supervisor`, a API limita a fonte de vendas às descrições cujo início, ignorando espaços iniciais e caixa, é `VENDA`. Os parâmetros `cfop`, `descricao_cfop` e suas exclusões não alteram esse recorte. O seletor apresenta “VENDA · seleção fixa”. Limpar filtros preserva a regra. Acessos gerais, incluindo Admin e Diretor, mantêm os filtros editáveis.
+
+Nos gráficos por período, clicar em uma barra ou rótulo do eixo aplica o mês e ano, dia ou intervalo semanal à página inteira. O segundo clique ou um clique no espaço vazio restaura o calendário anterior. Filtros de cliente, vendedor, família e produto são combinados com o período escolhido.
