@@ -62,7 +62,7 @@
  .com-client-highlight{font-size:15px!important}
 }
 
-.com-overview{display:grid;grid-template-columns:minmax(360px,1.45fr) repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+.com-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}
 .com-overview .com-panel{padding:14px 10px}.com-overview header{margin-bottom:10px;flex-wrap:nowrap;align-items:center}
 .com-overview .com-table-scroll{max-height:290px}.com-overview .com-table th,.com-overview .com-table td{padding:7px 6px;font-size:10px}.com-overview .com-table th:first-child{min-width:60px;max-width:70px}
 .com-top-list{height:290px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#999 #ededed}
@@ -205,3 +205,5 @@ body[data-page=positivacao] .com-main-filters{grid-template-columns:repeat(4,min
 
 .com-mobile-customer-status{display:none}
 @media(max-width:767px){#positivacaoClientes [data-type=status]{display:none}#positivacaoClientes .com-mobile-customer-status{display:block;margin-top:5px;font-weight:400}}
+
+.com-overview .com-top-row[aria-pressed=true]{background:var(--muted);box-shadow:inset 3px 0 var(--primary)}.com-overview .com-top-row:disabled{cursor:default}.com-overview .com-top header p{font-size:10px;margin-top:2px}

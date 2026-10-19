@@ -4,7 +4,7 @@ Configuração em assets/js/config.js. Prefixo exclusivo `/api/comercial-html`; 
 
 | Consulta | Resposta utilizada |
 |---|---|
-| GET /painel?periodo=dia/semana/mes | contrato=comercial-html-painel-v1; medidas,serie,meses,rankings.cliente/produto/vendedor,fontes |
+| GET /painel?periodo=dia/semana/mes | contrato=comercial-html-painel-v1; medidas,serie,meses,rankings.cliente/vendedor/familia/produto,fontes |
 | GET /clientes?pagina=1&tamanho=100&ordenar=produto&direcao=desc | contrato=comercial-html-clientes-v1; medidas,ranking,vendas,pagina,tamanho,mais,fontes |
 | GET /metas | contrato=comercial-html-metas-v1; cards,totais,vendedores,carteira,carteira_total,supervisores,mix,produtos,familias |
 | GET /metas/carteira?pagina=1&tamanho=100 | contrato=comercial-html-carteira-v1; dados,total,pagina,tamanho; clientes ativos da carteira selecionada |
@@ -42,7 +42,7 @@ Fontes de consulta: metas, clientes_cadastrados, cadastro_de_vendedores, base_ca
 Erros:401/403 limpam resultados;422 orienta corrigir filtro; falhas de disponibilidade preservam a última consulta confirmada. Controle por AbortController/generation evita que consultas antigas sobrescrevam filtros recentes.
 
 
-Na tela Faturamento, o resumo mensal consulta todos os meses disponíveis do ano selecionado, desconsiderando Mês/Dia e o intervalo de datas desse recorte. Mantém canal, CFOP, unidade e demais filtros comerciais. Cartões, gráficos e rankings continuam seguindo o mês/dia selecionado. Todos os filtros usam o mesmo seletor compacto com pesquisa, caixas de seleção múltipla e Selecionar todos, inclusive Mês/Ano/Unidade. Não há alternância de comportamento entre os campos. A tabela inferior de vendas foi removida somente dessa tela; os três painéis mantêm clique para filtrar e nomes abreviados com identificação completa ao passar o cursor.
+Na tela Faturamento, o resumo mensal foi substituído por Peso por família. Os quatro painéis seguem a ordem Clientes, Vendedores, Família e Produtos, no mesmo padrão de barras arredondadas e valores completos. Família agrupa o peso de todo o recorte no servidor e ordena por peso decrescente; os demais painéis usam faturamento. Todos seguem calendário e filtros comerciais. O campo meses da API permanece disponível por compatibilidade. Todos os filtros usam o mesmo seletor compacto com pesquisa, seleção múltipla e Selecionar todos.
 
 
 Painéis de ranking exibem identificação na primeira linha e barra/valor na segunda, com largura reservada ao maior valor formatado do painel e espaço próprio para a rolagem. O comprimento das barras usa a mesma escala dentro de cada painel; a apresentação não recalcula totais nem modifica valores da API.
@@ -92,3 +92,6 @@ Tabelas móveis têm cabeçalhos com quebra de linha, valores e identificações
 
 
 Ramo de atividade: disponível em Outros filtros nas quatro telas. `ramo_atividade` e `ramo_atividade_exc` usam a coluna Ramo Atividade do cadastro de clientes, ligada ao faturamento pelo código normalizado do cliente. A dimensão tem uma linha por cliente, preservando as somas do movimento. Pesquisa em `/opcoes?campo=ramo_atividade`, seleção múltipla, Selecionar todos, exclusões e Limpar seguem o contrato comum. Começa em Todos e acompanha a atualização do cadastro pela API. Em Metas, filtra realizados, produtos, famílias, mix e os clientes da carteira, inclusive na expansão. Objetivos cadastrados por vendedor mantêm sua regra e não são repartidos artificialmente por ramo.
+
+
+Interação dos quatro painéis: clicar na descrição ou barra seleciona cliente, vendedor, família ou produto e atualiza os cartões, séries e todas as listas pela mesma consulta consolidada. Seleções de campos diferentes podem ser combinadas. Segundo clique no item selecionado retira somente esse campo. Clique em área em branco dos painéis ou do canvas retira as seleções feitas por clique, preservando os filtros manuais. Controles de período/rolagem e o toque nos dados do gráfico não limpam essas seleções. O estado selecionado é destacado visualmente e exposto por aria-pressed.
