@@ -59,7 +59,7 @@
  }
  function mountOverview(){
   const panel=document.createElement('section');panel.className='com-overview';panel.setAttribute('aria-label','Resumo e destaques comerciais');
-  panel.innerHTML=[['cliente','Clientes'],['vendedor','Vendedores'],['familia','Família'],['produto','Produtos']].map(([dim,title])=>'<article class="card com-panel com-top"><header><div><h2>'+title+'</h2><p>'+(dim==='familia'?'Peso (kg)':'Faturamento (R$)')+'</p></div></header><div id="top_'+dim+'" class="com-top-list"></div></article>').join('');
+  panel.innerHTML=[['cliente','Clientes'],['vendedor','Vendedores'],['familia','Família'],['produto','Produtos']].map(([dim,title])=>'<article class="card com-panel com-top"><header><div><h2>'+title+'</h2><p>'+(['familia','cliente'].includes(dim)?'Peso (kg)':'Faturamento (R$)')+'</p></div></header><div id="top_'+dim+'" class="com-top-list"></div></article>').join('');
   $('conteudo').insertBefore(panel,$('rankingTabela').closest('article'));
  }
  const shortName=(name,limit)=>name.length>limit?name.slice(0,limit-1).trimEnd()+'…':name;
@@ -67,8 +67,8 @@
  function renderOverview(tops){
   for(const dim of ['cliente','vendedor','familia','produto']){
    const rows=tops[dim]||[],box=$('top_'+dim);if(!box)continue;
-   const metric=dim==='familia'?'peso':'faturamento',max=Math.max(0,...rows.map(r=>Math.abs(r[metric]||0)));
-   box.innerHTML=rows.map(r=>{const label=dim==='familia'?(r.nome||'Sem família'):r.codigo+' - '+r.nome,selected=filters[dim]?.length===1&&String(filters[dim][0])===String(r.codigo)&&!filters[dim+'_exc']?.length;return '<button type="button" class="com-top-row" data-code="'+esc(r.codigo)+'" title="'+esc(label)+'" aria-pressed="'+selected+'"'+(r.codigo==null?' disabled':'')+'><span class="com-top-name">'+esc(shortName(label,30))+'</span><span class="com-top-bar" aria-hidden="true"><i style="width:'+Math.max(1,max?Math.abs(r[metric]||0)/max*100:0)+'%"></i></span><strong>'+(dim==='familia'?number(r.peso,2)+' kg':money(r.faturamento))+'</strong></button>';}).join('')||'<p class="com-empty">Nenhum resultado para os filtros selecionados.</p>';
+   const metric=['familia','cliente'].includes(dim)?'peso':'faturamento',max=Math.max(0,...rows.map(r=>Math.abs(r[metric]||0)));
+   box.innerHTML=rows.map(r=>{const label=dim==='familia'?(r.nome||'Sem família'):r.codigo+' - '+r.nome,selected=filters[dim]?.length===1&&String(filters[dim][0])===String(r.codigo)&&!filters[dim+'_exc']?.length;return '<button type="button" class="com-top-row" data-code="'+esc(r.codigo)+'" title="'+esc(label)+'" aria-pressed="'+selected+'"'+(r.codigo==null?' disabled':'')+'><span class="com-top-name">'+esc(shortName(label,30))+'</span><span class="com-top-bar" aria-hidden="true"><i style="width:'+Math.max(1,max?Math.abs(r[metric]||0)/max*100:0)+'%"></i></span><strong>'+(['familia','cliente'].includes(dim)?number(r.peso,2)+' kg':money(r.faturamento))+'</strong></button>';}).join('')||'<p class="com-empty">Nenhum resultado para os filtros selecionados.</p>';
    const valueWidth=Math.ceil(Math.max(0,...Array.from(box.querySelectorAll('strong'),e=>{const range=document.createRange();range.selectNodeContents(e);return range.getBoundingClientRect().width;})))+8;box.style.setProperty('--com-rank-value-width',valueWidth+'px');
    box.querySelectorAll('[data-code]').forEach(b=>b.onclick=()=>{if(b.disabled)return;toggleSelection(dim,b.dataset.code,b.title);if(readFilters())load();});
   }
