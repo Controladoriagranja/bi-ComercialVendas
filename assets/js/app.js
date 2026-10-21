@@ -20,7 +20,7 @@
   const values=data.fontes.map(f=>f.ultima_atualizacao||f.concluido_em).filter(Boolean).map(v=>new Date(v)).filter(d=>!Number.isNaN(d.getTime()));
   $('ultimaAtualizacao').textContent=values.length?new Date(Math.max(...values)).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',hour12:false}):'—';
  }
- let picker,analysisReport,analysisPage=1,clientReport,clientPage=1,clientSort={key:'produto',desc:true};
+ let picker,analysisReport,analysisPage=1,analysisRows=[],clientReport,clientPage=1,clientSort={key:'produto',desc:true};
  function renderFilters(options){const access=options.acesso;const restricted=access&&['seller','supervisor'].includes(access.modo);const settings=['clientes','metas','positivacao'].includes(key)?{...options,visao:key,padrao:options['padrao_'+key]}:options;picker=new ComercialFilters($('filtros'),settings,new URLSearchParams(),()=>{clientPage=1;analysisPage=1;if(readFilters())load();});if(restricted){const notice=document.createElement('p');notice.className='com-access-scope';notice.setAttribute('role','note');notice.textContent='Acesso restrito: '+(access.modo==='seller'?'vendedor ':'equipe do supervisor ')+access.codigo+'. Limpar filtros mantém essa permissão. CFOP fixo: todas as descrições iniciadas por VENDA.';$('filtros').append(notice);}if(key==='clientes')$('filtros').querySelector('.com-actions').insertAdjacentHTML('afterbegin','<a class="button secondary" href="index.html?relatorio=faturamento">← Dashboard</a>');readFilters();}
  function readFilters(){
   const next=picker.read();if(!next)return false;filters=next;for(const[field,value]of visualSelections){if(filters[field]?.length!==1||String(filters[field][0])!==value||filters[field+'_exc']?.length)visualSelections.delete(field);}
@@ -101,10 +101,11 @@
  function toggleSelection(field,code,label){const same=filters[field]?.length===1&&String(filters[field][0])===String(code)&&!filters[field+'_exc']?.length;picker.set(field,same?'':code,same?'':label);if(same)visualSelections.delete(field);else visualSelections.set(field,String(code));}
  function clearVisualSelections(){const clearedPeriod=picker?.clearPeriodSelection();if(!visualSelections.size&&!clearedPeriod)return;for(const[field]of visualSelections)picker.set(field,'');visualSelections.clear();clientPage=1;analysisPage=1;if(readFilters())load();}
  document.addEventListener('click',event=>{if(event.target.closest('button,a,input,select,textarea,label,summary,.com-picker,.com-pager'))return;if(event.target.matches('.app-shell,.com-content,.com-overview,.com-panel,.com-panel header,.com-panel header>div,.com-top-list,.com-chart-viewport,.com-kpis,.com-kpi'))clearVisualSelections();});
- function mountAnalysis(){analysisReport=new ComercialAnalysis(key,$('conteudo'),{filters:()=>filters,select:(field,code,label)=>{toggleSelection(field,code,label);analysisPage=1;if(readFilters())loadAnalysis();},page:delta=>{analysisPage=Math.max(1,analysisPage+delta);loadAnalysis();}},{money,number,date,esc});}
- async function loadAnalysis(){
+ function mountAnalysis(){analysisReport=new ComercialAnalysis(key,$('conteudo'),{filters:()=>filters,select:(field,code,label)=>{toggleSelection(field,code,label);analysisPage=1;if(readFilters())loadAnalysis();},more:()=>loadAnalysis(true)},{money,number,date,esc});}
+ async function loadAnalysis(append=false){
+  if(append&&loading)return;const requestedPage=append?analysisPage+1:1;
   if(!analysisReport||!$('conteudo').children.length)mountAnalysis();const id=++generation;controller?.abort();controller=new AbortController();setLoading(true);$('erro').hidden=true;status('Consultando '+screen.title.toLocaleLowerCase()+'…');
-  try{const data=await ComercialApi.get(key,{...filters,...(key==='positivacao'?{pagina:analysisPage,tamanho:100}:{})},controller.signal);if(id!==generation)return;if(data.contrato!=='comercial-html-'+key+'-v1'||!Array.isArray(data.fontes))throw new ComercialApiError('Resposta incompatível com o relatório.');analysisReport.render(data);updateHealth(data);confirmed=true;status('Dados reais · '+screen.title+' · '+(key==='positivacao'?number(data.total)+' clientes':'Metas e realizado no recorte selecionado'));}catch(e){if(id===generation)error(e);}finally{if(id===generation)setLoading(false);}
+  try{const data=await ComercialApi.get(key,{...filters,...(key==='positivacao'?{pagina:requestedPage,tamanho:200}:{})},controller.signal);if(id!==generation)return;if(data.contrato!=='comercial-html-'+key+'-v1'||!Array.isArray(data.fontes))throw new ComercialApiError('Resposta incompatível com o relatório.');if(key==='positivacao'){analysisPage=data.pagina;analysisRows=append?[...analysisRows,...data.dados]:data.dados;analysisReport.render({...data,dados:analysisRows},append);}else analysisReport.render(data);updateHealth(data);confirmed=true;status('Dados reais · '+screen.title+' · '+(key==='positivacao'?number(data.total)+' clientes':'Metas e realizado no recorte selecionado'));}catch(e){if(id===generation)error(e);}finally{if(id===generation)setLoading(false);}
  }
  function mountClients(){
   clientReport=new ComercialClients($('conteudo'),{
@@ -149,7 +150,7 @@
   }catch(e){setLoading(false);error(e);}
  }
  let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(charts.length&&chartRows.length)renderCharts(chartRows);},120);});
- setInterval(()=>{if(!document.hidden&&!loading&&confirmed)screen.source?loadBase():load();},COMERCIAL_CONFIG.refreshMs);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!loading&&confirmed)screen.source?loadBase():load();});
+ setInterval(()=>{if(!document.hidden&&!loading&&confirmed&&!(key==='positivacao'&&analysisPage>1))screen.source?loadBase():load();},COMERCIAL_CONFIG.refreshMs);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!loading&&confirmed&&!(key==='positivacao'&&analysisPage>1))screen.source?loadBase():load();});
  initialize();
 })();
