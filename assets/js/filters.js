@@ -22,9 +22,10 @@ window.ComercialFilters=class {
    if(this.fixedCfop&&['cfop','descricao_cfop'].includes(k)){const summary=detail.querySelector('summary');summary.setAttribute('aria-disabled','true');summary.title='Todas as descrições iniciadas por VENDA. Regra fixa para este acesso.';summary.onclick=e=>e.preventDefault();detail.querySelectorAll('input').forEach(input=>input.disabled=true);detail.addEventListener('toggle',()=>{detail.open=false;});continue;}
    detail.addEventListener('toggle',()=>{if(detail.open){host.querySelectorAll('.com-picker[open]').forEach(x=>{if(x!==detail)x.open=false;});this.search(k);}});
    detail.querySelector('input[type=search]').addEventListener('input',()=>{clearTimeout(this.timers[k]);this.requests[k]?.abort();this.timers[k]=setTimeout(()=>this.search(k),250);});
+   detail.querySelector('input[type=search]').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();e.stopPropagation();clearTimeout(this.timers[k]);this.search(k);}});
    detail.querySelector('[data-all]').onchange=e=>{this.states[k]={values:e.target.checked?[]:['__nenhum__'],excluded:[]};this.refresh(k);this.draw(k);this.scheduleApply();};
   }
-  this.form.onsubmit=e=>{e.preventDefault();if(this.read()){host.querySelectorAll('.com-picker[open]').forEach(x=>x.open=false);this.applyNow();}};
+  this.form.onsubmit=e=>{e.preventDefault();if(document.activeElement?.matches('.com-picker input[type=search]'))return;if(this.read()){host.querySelectorAll('.com-picker[open]').forEach(x=>x.open=false);this.applyNow();}};
   host.querySelector('#limpar').onclick=()=>{this.periodSelection=null;for(const[k]of this.fields){this.states[k]={values:[...(this.defaults[k]||[])],excluded:[]};this.refresh(k);}this.form.elements.inicio.value=begin;this.form.elements.fim.value=end;this.applyNow();};
   for(const field of ['inicio','fim'])this.form.elements[field].addEventListener('change',()=>this.scheduleApply());
   document.addEventListener('click',e=>{if(!e.target.closest('.com-picker'))host.querySelectorAll('.com-picker[open]').forEach(x=>x.open=false);});
@@ -59,7 +60,7 @@ window.ComercialFilters=class {
    if(['ano','mes','unidade_cadastro'].includes(k)){
     const end=this.options.periodo.fim;let rows=k==='mes'?this.months.map((nome,i)=>({codigo:String(i+1),nome})):k==='ano'?Array.from({length:Number(end.slice(0,4))-2023+1},(_,i)=>({codigo:String(2023+i),nome:String(2023+i)})):this.options.unidades.map(x=>({codigo:x.nome,nome:this.unitLabel(x)}));
     data={dados:rows.filter(r=>(r.nome+' '+r.codigo).toLocaleLowerCase().includes(q.toLocaleLowerCase())),mais:false};
-   }else data=await ComercialApi.get('opcoes',{...this.read(),campo:k,q,visao:this.options.visao||'faturamento'},request.signal);
+   }else{const filters={...this.read()};delete filters[k];delete filters[k+'_exc'];data=await ComercialApi.get('opcoes',{...filters,campo:k,q,visao:this.options.visao||'faturamento'},request.signal);}
    if(this.requests[k]!==request)return;this.rows??={};this.rows[k]=data.dados;for(const row of data.dados)this.labels[k].set(String(row.codigo),row.nome);this.refresh(k);this.draw(k);info.textContent=data.mais?'Exibindo 100 opções. Digite para localizar outras. Selecionar todos inclui todas as opções.':data.dados.length+' opções';
   }catch(error){if(error.name!=='AbortError'&&this.requests[k]===request){this.rows??={};this.rows[k]=[];this.draw(k);info.textContent=error.message;}}
  }
