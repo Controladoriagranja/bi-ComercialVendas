@@ -157,7 +157,7 @@ body[data-page=positivacao] .com-main-filters{grid-template-columns:repeat(4,min
 
 /* Identificação agrupada apenas no celular; a tabela completa mantém as sete colunas no desktop. */
 .com-mobile-sale{display:none}
-@media(min-width:768px){.comercial-report .com-client-table th:nth-child(2),.comercial-report .com-client-table td:nth-child(2){position:sticky;left:0;z-index:2;width:88px;min-width:88px;max-width:88px;background:var(--card);text-align:left;border-right:1px solid var(--border)}.com-client-table tbody tr:nth-child(even)>:nth-child(2){background:var(--muted)}.com-client-table thead th:nth-child(2){z-index:5}.com-client-table td:nth-child(3),.com-client-table td:nth-child(4){text-align:left;font-weight:400}}
+@media(min-width:768px){.comercial-report .com-client-table th:nth-child(2),.comercial-report .com-client-table td:nth-child(2){position:sticky;left:0;z-index:2;width:88px;min-width:88px;max-width:88px;background:var(--card);text-align:left;border-right:1px solid var(--border)}.com-client-table tbody tr:nth-child(even)>:nth-child(2){background:var(--muted)}.comercial-report .com-client-table thead th:nth-child(2){z-index:5}.com-client-table td:nth-child(3),.com-client-table td:nth-child(4){text-align:left;font-weight:400}}
 @media(max-width:767px){
  .comercial-report .com-table-scroll,.comercial-report .com-carteira-children{overflow-x:hidden;overflow-y:auto;touch-action:pan-y;overscroll-behavior-x:none}
  .comercial-report .com-chart canvas{touch-action:pan-y!important}
