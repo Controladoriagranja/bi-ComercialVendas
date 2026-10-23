@@ -20,7 +20,7 @@
   const values=data.fontes.map(f=>f.ultima_atualizacao||f.concluido_em).filter(Boolean).map(v=>new Date(v)).filter(d=>!Number.isNaN(d.getTime()));
   $('ultimaAtualizacao').textContent=values.length?new Date(Math.max(...values)).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',hour12:false}):'—';
  }
- let picker,analysisReport,analysisPage=1,analysisRows=[],clientReport,clientPage=1,clientSort={key:'produto',desc:true};
+ let picker,analysisReport,analysisPage=1,analysisRows=[],clientReport,clientPage=1,clientSort={key:'data',desc:true};
  function renderFilters(options){const access=options.acesso;const restricted=access&&['seller','supervisor'].includes(access.modo);const settings=['clientes','metas','positivacao'].includes(key)?{...options,visao:key,padrao:options['padrao_'+key]}:options;picker=new ComercialFilters($('filtros'),settings,new URLSearchParams(),()=>{clientPage=1;analysisPage=1;if(readFilters())load();});if(restricted){const notice=document.createElement('p');notice.className='com-access-scope';notice.setAttribute('role','note');notice.textContent='Acesso restrito: '+(access.modo==='seller'?'vendedor ':'equipe do supervisor ')+access.codigo+'. Limpar filtros mantém essa permissão. CFOP fixo: todas as descrições iniciadas por VENDA.';$('filtros').append(notice);}if(key==='clientes')$('filtros').querySelector('.com-actions').insertAdjacentHTML('afterbegin','<a class="button secondary" href="index.html?relatorio=faturamento">← Dashboard</a>');readFilters();}
  function readFilters(){
   const next=picker.read();if(!next)return false;filters=next;for(const[field,value]of visualSelections){if(filters[field]?.length!==1||String(filters[field][0])!==value||filters[field+'_exc']?.length)visualSelections.delete(field);}
