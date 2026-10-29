@@ -210,3 +210,6 @@ body[data-page=positivacao] .com-main-filters{grid-template-columns:repeat(4,min
 
 .com-picker summary[aria-disabled=true]{cursor:default;color:var(--muted-foreground)}
 .com-picker summary[aria-disabled=true]>span[aria-hidden=true]{display:none}
+
+.com-secondary-filters{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:12px}
+@media(max-width:767px){.comercial-report .com-secondary-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
