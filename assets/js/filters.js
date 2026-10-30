@@ -11,7 +11,8 @@ window.ComercialFilters=class {
   this.secondaryFields=[];
   if(options.visao==='faturamento'){
    const first=[['unidade_cadastro','Unidade'],['familia','Família'],['supervisor','Supervisor'],['ano','Ano'],['mes','Mês'],['dia','Dia']];
-   this.fields=[...first,...this.fields.filter(([k])=>!first.some(([f])=>f===k))];this.primaryCount=6;
+   this.secondaryFields=[['vendedor','Vendedor'],['regiao','Região de atendimento']];
+   const visible=[...first,...this.secondaryFields];this.fields=[...visible,...this.fields.filter(([k])=>!visible.some(([f])=>f===k))];this.primaryCount=8;
   }
   this.fixedCfop=options.acesso?.cfop_vendas_fixo===true||['seller','supervisor'].includes(options.acesso?.modo);
   this.months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
