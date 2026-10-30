@@ -8,8 +8,11 @@ window.ComercialFilters=class {
   if(options.visao==='metas'){const first=[['vendedor','Vendedor'],['supervisor','Supervisor'],['empresa','Empresa'],['dia','Dia'],['mes','Mês'],['ano','Ano'],['regiao','Região de atendimento']];this.fields=[...first,['cfop','CFOP'],...this.fields.filter(([k])=>!first.some(([f])=>f===k)&&k!=='descricao_cfop'),['tipo_vendedor','Tipo vendedor']];this.primaryCount=7;}
   if(options.visao==='positivacao'){this.fields=[['familia','Família'],['vendedor','Vendedor'],['cliente','Cliente'],['rede_financeira','Redes financeiras'],['cfop','CFOP'],['ramo_atividade','Ramo de atividade']];this.primaryCount=4;}
   if(options.visao==='positivacao'){this.fields=[['mes','Mês'],['ano','Ano'],...this.fields];this.primaryCount=6;}
-  this.secondaryFields=options.visao==='faturamento'?[['unidade_cadastro','Unidade'],['familia','Família'],['canal','Canal Comercial']]:[];
-  if(this.secondaryFields.length){this.fields=[...this.fields.slice(0,6),...this.secondaryFields,...this.fields.slice(6).filter(([k])=>!this.secondaryFields.some(([f])=>f===k))];this.primaryCount=9;}
+  this.secondaryFields=[];
+  if(options.visao==='faturamento'){
+   const first=[['unidade_cadastro','Unidade'],['familia','Família'],['supervisor','Supervisor'],['ano','Ano'],['mes','Mês'],['dia','Dia']];
+   this.fields=[...first,...this.fields.filter(([k])=>!first.some(([f])=>f===k))];this.primaryCount=6;
+  }
   this.fixedCfop=options.acesso?.cfop_vendas_fixo===true||['seller','supervisor'].includes(options.acesso?.modo);
   this.months=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const today=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',year:'numeric',month:'numeric'}).formatToParts(new Date()).map(p=>[p.type,p.value]));
