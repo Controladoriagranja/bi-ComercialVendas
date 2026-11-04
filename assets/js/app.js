@@ -5,7 +5,7 @@
  const screens={faturamento:{title:'Faturamento',dimension:'vendedor'},clientes:{title:'Detalhamento de Vendas por Cliente',dimension:'cliente'},vendedores:{title:'Detalhamento de Vendedores',dimension:'vendedor'},produtos:{title:'Vendas por Produto',dimension:'produto'},metas:{title:'Metas e Vendedores'},positivacao:{title:'Positivação Efetiva'},supervisao:{title:'Supervisão',source:'base_cadastro_comercial'}};
  const query=new URLSearchParams(location.search),key=screens[query.get('relatorio')]?query.get('relatorio'):'faturamento',screen=screens[key],mobile=()=>PcpMobileScroll.active();
  document.body.dataset.page=key;$('titulo').textContent=screen.title;document.title=screen.title+' | Comercial Vendas';
- let filters={},period='mes',dimension=screen.dimension,controller=null,generation=0,loading=false,confirmed=false,charts=[],sources=[],page=1,source=screen.source,sort={key:'faturamento',desc:true};
+ let filters={},period='mes',dimension=screen.dimension,controller=null,generation=0,loading=false,confirmed=false,lastConfirmedAt=0,charts=[],sources=[],page=1,source=screen.source,sort={key:'faturamento',desc:true};
  const visualSelections=new Map();
  const unitLabels={'10':'10 · Ave Nova','111':'111 · Real Alimentos','102':'102 · CD Januária','180':'180 · CD Ribeirão das Neves'};
  function setLoading(value){loading=value;$('carregando').hidden=!value;}
@@ -17,6 +17,7 @@
   else if(!confirmed)status('Consulta não concluída.');
  }
  function updateHealth(data){
+  lastConfirmedAt=Date.now();
   const values=data.fontes.map(f=>f.ultima_atualizacao||f.concluido_em).filter(Boolean).map(v=>new Date(v)).filter(d=>!Number.isNaN(d.getTime()));
   $('ultimaAtualizacao').textContent=values.length?new Date(Math.max(...values)).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',hour12:false}):'—';
  }
@@ -150,7 +151,8 @@
   }catch(e){setLoading(false);error(e);}
  }
  let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(charts.length&&chartRows.length)renderCharts(chartRows);},120);});
- setInterval(()=>{if(!document.hidden&&!loading&&confirmed&&!(key==='positivacao'&&analysisPage>1))screen.source?loadBase():load();},COMERCIAL_CONFIG.refreshMs);
- document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!loading&&confirmed&&!(key==='positivacao'&&analysisPage>1))screen.source?loadBase():load();});
+ function refreshIfDue(){if(!document.hidden&&!loading&&confirmed&&Date.now()-lastConfirmedAt>=COMERCIAL_CONFIG.refreshMs&&!(key==='positivacao'&&analysisPage>1))screen.source?loadBase():load();}
+ setInterval(refreshIfDue,COMERCIAL_CONFIG.refreshMs);
+ document.addEventListener('visibilitychange',refreshIfDue);
  initialize();
 })();
